@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import './LoginForm.css';
+import { useNavigate } from 'react-router-dom';
+import '../css/LoginForm.css';
 
 const LoginForm = () => {
   const [userId, setUserId] = useState('');
   const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -59,6 +61,10 @@ const LoginForm = () => {
                   <pre className="bg-dark text-white p-3 rounded">{JSON.stringify(userInfo, null, 2)}</pre>
                 </div>
               )}
+            </div>
+            <div className="button-container">
+              <button onClick={() => navigate('/')}>HomePage</button>
+              <button onClick={() => navigate('/user')}>User</button>
             </div>
           </div>
         </div>
